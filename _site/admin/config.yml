@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: nrqlz/MBT
+  repo: nqrlz/MBT
   branch: master
   site_domain: mbt.netlify.com
 media_folder: "images/uploads"
