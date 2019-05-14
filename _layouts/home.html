@@ -2,26 +2,33 @@
 layout: default
 ---
 
-<script src="https://code.jquery.com/jquery-1.11.2.js"></script>
+<div class="home">
+  {%- if page.title -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%}
 
-  <!-- Make sure to include Nelify's authentiation library -->
-  <!-- Also available via npm as netlify-auth-providers -->
-  <script src="https://unpkg.com/netlify-auth-providers"></script>
+  {{ content }}
 
-  <script>
-    $(function() {
-      $("#login").on("click", function(e) {
-        e.preventDefault();
-        var authenticator = new netlify.default ({});
-        authenticator.authenticate({provider:"github", scope: "user"}, function(err, data) {
-          if (err) {
-            return $("#output").text("Error Authenticating with GitHub: " + err);
-          }
-          $("#output").text("Authenticated with GitHub. Access Token: " + data.token);
-        });
-      });
-    });
-  </script>
-  <h1>GitHub Auth Demo:</h1>
-  <p><a href="#" id="login">Authenticate</a></p>
-  <p id="output"></p>
+  {%- if site.posts.size > 0 -%}
+    <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
+    <ul class="post-list">
+      {%- for post in site.posts -%}
+      <li>
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        <span class="post-meta">{{ post.date | date: date_format }}</span>
+        <h3>
+          <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+          </a>
+        </h3>
+        {%- if site.show_excerpts -%}
+          {{ post.excerpt }}
+        {%- endif -%}
+      </li>
+      {%- endfor -%}
+    </ul>
+
+    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+  {%- endif -%}
+
+</div>
