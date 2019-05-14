@@ -22,13 +22,9 @@ layout: default
             {{ post.title | escape }}
           </a>
         </h3>
-        {% assign image_files = site.static_files | where: "image", true %}
-{% for myimage in image_files %}
-  {{ myimage.path }}
-{% endfor %}
-        {%- if site.show_excerpts -%}
-          {{ post.excerpt }}
-        {%- endif -%}
+        image
+        <img src="{page.thumbnail}" alt="">
+        {page.thumbnail}
       </li>
       {%- endfor -%}
     </ul>
