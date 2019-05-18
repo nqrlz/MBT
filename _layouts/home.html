@@ -51,11 +51,12 @@ layout: default
                   {{ post.title | escape }}
                 </a>
               </h3>
-              {%- if post.rating > 0 -%}
-                <p>Noch {{post.rating}} freie Plätze!</p>
-              {% else %}
-                <p>Keine freien Plätze mehr!</p>
-              {%- endif -%}
+              <p>Gewinner: {{ post.winner | escape }}</p>
+              <h4>Play of the Game</h4>
+              <div class="yt-container">
+                  {{ post.play }}
+              </div>
+              
             </article> 
       {% endif %}
       
