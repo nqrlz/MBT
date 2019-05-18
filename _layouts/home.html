@@ -21,11 +21,11 @@ layout: default
 
 
 
+
   {%- if site.posts.size > 0 -%}
       {%- for post in site.posts -%}
       <article>
-          {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-          <span class="post-meta">{{ post.date | date: date_format }}</span>
+      <time>{% assign m = post.dateplayed | date: "%-m" %} {{ post.dateplayed | date: "%-d" }}. {% case m %} {% when '1' %}Januar {% when '2' %}Februar {% when '3' %}M&auml;rz {% when '4' %}April {% when '5' %}Mai {% when '6' %}Juni {% when '7' %}Juli {% when '8' %}August {% when '9' %}September {% when '10' %}Oktober {% when '11' %}November {% when '12' %}Dezember {% endcase %} {{ post.dateplayed | date: "%Y" }}</time> 
           <h3>
             <a class="post-link" href="{{ post.url | relative_url }}">
               {{ post.title | escape }}
