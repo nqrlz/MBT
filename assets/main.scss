@@ -4,21 +4,27 @@
 
 @import '_nav';
 @import '_animation';
+@import '_home';
 
 
-@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
 
 html {
     background: #17001A;
+    font-family: "Lato";
 }
 
 html, body {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
 }
 
 main {
+    padding-top: 5rem;
     color: white;
 }
 

@@ -1,8 +1,57 @@
 nav {
-    background: #17001A;
+    background: #3F0093;
+    position: fixed;
+    width: 100%;
+    top: 0; left: 0;
+    z-index: 999;
+    padding: 0 1rem;
     ul {
+        display: none;
         list-style: none;
+        margin: 0;
         padding: 0;
+        line-height: 3;
+        li {
+            border-bottom: 1px solid white;
+            padding: 1rem;
+            font-weight: 700;
+            font-size: 1rem;
+            a {
+                text-decoration: none;
+            }
+            &:first-child {
+                border-top: 1px solid white; 
+            }
+            &:last-child {
+                border: none;
+            }
+        }
     }
+    span.item {
+        padding: 0 1rem;
+        line-height: 3;
+        display: block;
+    }
+    li.item, span.item {
+        padding: 1rem;
+        font-weight: 700;
+        font-size: 1rem;
+        a {
+            text-decoration: none;
+        }
+    }
+}
+
+#nav {
+    position: absolute;
+    right: 1rem; top: 1rem;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    opacity: 1;
+}
+
+#nav:checked ~ .navigation{
+    display: block;
 }
 
