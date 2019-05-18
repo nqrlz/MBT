@@ -17,5 +17,6 @@ collections:
       - {label: "Veröffentlich am", name: "date", widget: "datetime"}
       - {label: "Turnier findet statt am:", name: "dateplayed", widget: "datetime"}
       - {label: "Draft", name: "draft", widget: "boolean", default: true}
-      - {label: "Highlight", name: "highlight", widget: "string", required: false}
+      - {label: "Gewinner", name: "winner", widget: "string", required: false}
+      - {label: "Play of the Tourney", name: "play", widget: "string", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
