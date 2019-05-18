@@ -2,8 +2,43 @@
 layout: default
 ---
 
+<div class="twitch">
+    <a href="https://www.twitch.tv/b4ithoven" target="_blank" rel="noopener">
+      <span class="twitch__live">LIVE: </span>
+     <span class="twitch__output"></span>
+  </a>
+</div>
+
+
 <div class="hero">
-    <h1>Monthly Baitourney</h1>
+    <div class="hero__top">
+        <h2>Nächstes</h2>
+        <h2>Tournier</h2>
+        <h2 class="timer"></h2>
+
+        {%- for post in site.posts -%}
+          {% assign today_date = 'now' | date: '%s' %}
+          {% assign pre_date = post.dateplayed | date: '%s' %}
+          {% if today_date < pre_date %}
+            <article>
+                <time class="nexttourney" data-time="{{ pre_date }}">{% assign m = post.dateplayed | date: "%-m" %} {{ post.dateplayed | date: "%-d" }}. {% case m %} {% when '1' %}Januar {% when '2' %}Februar {% when '3' %}M&auml;rz {% when '4' %}April {% when '5' %}Mai {% when '6' %}Juni {% when '7' %}Juli {% when '8' %}August {% when '9' %}September {% when '10' %}Oktober {% when '11' %}November {% when '12' %}Dezember {% endcase %} {{ post.dateplayed | date: "%Y" }}</time> 
+                  <h3>
+                    <a class="post-link" href="{{ post.url | relative_url }}">
+                      {{ post.title | escape }}
+                    </a>
+                  </h3>
+                  {%- if post.rating > 0 -%}
+                    <p>Noch {{post.rating}} freie Plätze!</p>
+                    <button class="btn">anmelden</button>
+                  {% else %}
+                    <p>Keine freien Plätze mehr!</p>
+                  {%- endif -%}
+                  {{ post.excerpt }}
+                </article> 
+          {% endif %}      
+          {%- endfor -%}
+
+        </div>
     <div class="background">
       <div class="star1"></div>
       <div class="star2"></div>
@@ -26,22 +61,6 @@ layout: default
       {%- for post in site.posts -%}
       {% assign today_date = 'now' | date: '%s' %}
       {% assign pre_date = post.dateplayed | date: '%s' %}
-      {% if today_date < pre_date %}
-        <h2>Nächstes Turnier:</h2> 
-        <article>
-            <time>{% assign m = post.dateplayed | date: "%-m" %} {{ post.dateplayed | date: "%-d" }}. {% case m %} {% when '1' %}Januar {% when '2' %}Februar {% when '3' %}M&auml;rz {% when '4' %}April {% when '5' %}Mai {% when '6' %}Juni {% when '7' %}Juli {% when '8' %}August {% when '9' %}September {% when '10' %}Oktober {% when '11' %}November {% when '12' %}Dezember {% endcase %} {{ post.dateplayed | date: "%Y" }}</time> 
-              <h3>
-                <a class="post-link" href="{{ post.url | relative_url }}">
-                  {{ post.title | escape }}
-                </a>
-              </h3>
-              {%- if post.rating > 0 -%}
-                <p>Noch {{post.rating}} freie Plätze!</p>
-              {% else %}
-                <p>Keine freien Plätze mehr!</p>
-              {%- endif -%}
-            </article> 
-      {% endif %}
       {% if today_date > pre_date %}
         <h2>Vergangene Turniere:</h2> 
         <article>

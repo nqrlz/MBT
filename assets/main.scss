@@ -7,15 +7,14 @@
 @import '_home';
 
 
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap');
 * {
     box-sizing: border-box;
 }
 
 html {
     background: #17001A;
-    font-family: "Lato";
+    font-family: 'Open Sans', sans-serif;
 }
 
 html, body {
@@ -38,4 +37,19 @@ a {
 
 img {
     max-width: 100%;
+}
+
+.btn {
+    background: #620062;
+    text-transform: uppercase;
+    display: inline-block;
+    line-height: 40px;
+    height: 40px;
+    border-radius: 4px;
+    letter-spacing: .025rem;
+    padding: 0 .8rem;
+    font-size: 1rem;
+    border: none;
+    color:white;
+    font-weight: 600;
 }
