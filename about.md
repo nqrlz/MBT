@@ -1,7 +1,8 @@
 ---
 layout: page
-title: Yess
+title: About
 permalink: /about/
+weight: 1
 ---
 
 MBT
